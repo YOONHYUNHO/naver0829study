@@ -7,8 +7,8 @@
 
 git-bash
 
-처음 이메일과 유저명 확인
-git config --global user.name "[사용자명]"
+처음 이메일과 유저명 확인  
+git config --global user.name "[사용자명]"  
 git config --global user.email "[사용자이메일]"
 
 
