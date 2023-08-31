@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제 1</title>
+</head>
+<body>
+    <h2>body 안에서 스크립트 실행하기</h1>
+    <img src="../mycar/mycar3.png" alt="자동차1" border = "6" width="100">
+    
+    <!-- 스크립트에서 글자와 이미지 출력 -->
+    <script>
+        /* 자바 스크립트 영역
+        브라우저로 html 태그 출력 : document.write()로 출력
+        브라우저 console창 출력 : console.log()로 출력
+        */
+       document.write("<br><b>여기는 스크립트 영역입니다.</b><br>");
+       
+       var s1 = "../연예인사진/kimtaehee.jpg";
+       var s2 = "../연예인사진/soojee.jpg";
+
+       /* 사진 출력 1
+       JS에서는 따옴표 성질이 같다. */
+       
+       // es5 버전
+       document.write("<img alt = '사진1' src = '"+s1+"' width = 200>"); 
+       // es6 버전
+       document.write(`<img alt = '사진2' src = "${s2}" width = 200`); 
+       
+    </script>
+</body>
+</html>
