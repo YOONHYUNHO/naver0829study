@@ -15,6 +15,8 @@ public class ExamEx8 {
 		 * 일원 : 1개
 		 * : 산술연산자를 사용해서 출력
 		*/
+		
+		//파라미터에서 월급여를 읽어서(문자열) 정수타입으로 변환
 		int money = Integer.parseInt(args[0]);
 		System.out.println("money = " + money + "원");
 		System.out.println("만원 = " + money/10000 + "장");
