@@ -16,6 +16,7 @@ public class OperEx7 {
 		System.out.println(kor >= 95 || eng >= 95 && mat >= 95); // true
 		
 		
+		
 		int year = 2023;
 		// 위의 년도가 윤년인지 아닌지
 		System.out.println(year%4 == 0 && year%100 != 0 || year%400 == 0);
