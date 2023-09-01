@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        구구단 숫자 2-9까지 입력을 받아서 해당 구구단을 출력
+        단 2-9 사이의 값이 아닐 경우 이미지 출력
+    -->
+
+    <script>
+        let dan = prompt("단을 입력하세요");
+
+        for(let i = 1; i <= 9; i++) {
+            if(dan < 2 || dan > 9) {
+                document.write(`'<img src = "../mycar/mycar${i}.png"/>'`);
+            } else
+            document.write(`${dan} * ${i} = ${dan*i}<br>`);
+        }
+    </script>
+</body>
+</html>

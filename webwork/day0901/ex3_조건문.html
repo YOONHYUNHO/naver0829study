@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문</title>
+    <style>
+        .one {
+            color: aquamarine;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let answer = prompt("숫자를 입력하세요");
+        document.write(`<h3 class ='one'>answer = ${answer}</h3>`);
+        // 이미지 너비 입력
+        let w = prompt("너비를 입력하세요");
+        if(w == null) { // 취소 시 적용
+            w = 300;
+        }
+       
+        let imgName = "";
+        // 1 ~ 15 해당 자동차 이미지를 나타내고 범위가 벗어날 경우 연예인 사진 중 하나를 실행
+        if(answer >= 1 && answer <= 15) {
+            imgTag = `<img alt = "자동차" src = "../mycar/mycar${answer}.png" width =${w}>`;
+        } else {
+            imgTag = `<img alt = "박보영" src = "../연예인사진/parkboyoung.jpg" width =${w}>`;
+        }
+        document.write(imgTag);
+    </script>
+</body>
+</html>

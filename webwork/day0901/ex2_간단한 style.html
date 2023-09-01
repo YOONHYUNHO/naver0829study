@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Jua&family=Oswald&display=swap" rel="stylesheet">
+    <!-- 스타일 정의 - 문서 삽입형 -->
+    <style>
+        /* 스타일 영역의 주석처리 */
+        .one {
+            color: blue;
+            font-size: 30px;
+        }
+        div.one { /* div 태크의 one class에 적용 */
+            color: black;
+        }
+        .two {
+            color: red;
+            font-size: 40px;
+        }
+        .two,span.three {
+            background-color: blueviolet;
+        }
+        .three {
+            font-size: 50px;
+            color: green;
+        }
+        span {
+            color: red;
+        }
+        div {
+            color: aqua;
+        }
+        /* div 태크 중 클래스명이 ont, three인 경우에만 border 적용 */
+        div.one, div.three {
+            border : 5px solid darkgreen;
+        }
+        /* border 속성을 따로 주고자 할 경우 */
+        h1 {
+            border-width: 5px;
+            border-style: dotted;
+            border-color: cadetblue;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 스타일 정의 - 태그 삽입형 -->
+    <h1 style="color: darkblue; font-family: 'BagelFatOne'; background-color: aqua;" >오늘 날씨 더워</h1>
+    <h1 style="color: rgb(150, 190, 167); background-color: rgba(100, 234, 200, 0.5);" >hot summer</h1>
+    <span class="one">JAVA</span>
+    <span class="two">HTML</span>
+    <span class="three">JAVASCRIPT</span>
+    <hr>
+    <div class="one">소나타</div>
+    <div class="two">그랜져</div>
+    <div class="three">벤츠</div>
+</body>
+</html>

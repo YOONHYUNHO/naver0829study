@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Jua&family=Oswald&display=swap" rel="stylesheet">
+    <title>연산자</title>
+    <style>
+        body {
+            font-size: 30PX;
+            font-family: fantasy;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let su1 = prompt("숫자 1 입력", 10);
+        let su2 = prompt("숫자 2 입력", 20);
+        console.log("su1 = " + typeof(su1)); // 타입 확인 (string)  string일 경우 +만 나열
+        console.log("su2 = " + typeof(su2)); 
+
+        // let add = parseInt(su1) + parseInt(su2); // 정수 타입으로 변환 후 계산
+        let add = Number(su1) + Number(su2); // 문자열 -> 숫자
+        let sub = su1 - su2;
+        let mul = su1 * su2;
+        let div = su1 / su2;
+
+        let s = `<b> add = ${add}<br> sub = ${sub}<br> mul = ${mul}<br> div = ${div}<br></b>`;
+        document.write(s);
+
+    </script>
+</body>
+</html>
