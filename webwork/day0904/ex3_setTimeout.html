@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () 
+        {
+            // alert("안녕");
+
+            // 사진의 요소 값을 얻는다.
+            let photo = document.getElementById("myphoto");
+            /* 사진의 src 속성을 변경
+                photo.setAttribute("src", "../연예인사진/15.jpg"); // 바로 작용
+            */
+            // 3초 후 사진 변경
+            setTimeout(function() 
+            {
+                photo.setAttribute("src", "../연예인사진/15.jpg");
+            }, 3000);
+
+            // 5초 후 사진 다시 변경
+            setTimeout(function() 
+            {
+                photo.setAttribute("src", "../연예인사진/12.jpg");
+            }, 5000);
+            
+        }
+        // window.onunload = function () 
+        // {
+        //     alert("잘가");
+        // }
+    </script>
+</head>
+<body>
+    <img src="../연예인사진/12.jpg" alt="사진" width="200px" id="myphoto">
+</body>
+</html>

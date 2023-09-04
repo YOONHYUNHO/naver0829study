@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Jua&family=Oswald&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        div#msg
+        {
+            font-family: "Jua";
+            font-size: 30px;
+            margin-top: 30px;
+            color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <input type = "text" id = "txtmsg">
+    <input type = "button" id = "btn1" value = "읽기">
+    <div id = "msg">Message</div>
+
+    <script>
+        let t = document.getElementById("txtmsg");
+        let b = document.getElementById("btn1");
+        let msg = document.getElementById("msg");
+
+        // 버튼 이벤트 - 버튼 클릭 시 해당 함수 호출
+        b.onclick = function() 
+        {
+            // 입력 한 문자열을 가져온다.
+            let data = t.value;
+            // msg에 출력
+            // msg.innerText ="<u>"+data+"</u>"; // innerText 는 태그도 그대로 출력
+            // msg.innerHTML = "<u>"+data+"</u>";
+            msg.innerHTML += "<br><u>"+data+"</u>"; // += : 기존 데이터에 추가로 출력
+            // 입력 한 값을 지운 후 포커스를 준다.
+            t.value = "";
+            t.focus();
+        }
+    </script>
+</body>
+</html>

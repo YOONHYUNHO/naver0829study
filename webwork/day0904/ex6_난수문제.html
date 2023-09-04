@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type = "button" value = "새로운 난수" id = "btnrnd">
+    <input text = "text" value= "" id="txt">
+    <input type="button" value="ok" id="btn"> 
+    <div id = "msg"></div>
+    <img src = "../연예인사진/1.jpg" id = "img" width="200px">
+
+    <script>
+        let rnd; // 난수를 구할 변수
+        let rnd2;
+        // 난수 버튼 이벤트
+        document.getElementById("btnrnd").onclick = function()
+        {
+            rnd = parseInt(Math.random()*100)+1;
+            rnd2 = parseInt(Math.random()*15)+1;
+            
+            // console에 출력
+            console.log(rnd);
+            console.log(rnd2);
+
+        }
+        // 난수 입력 변수
+        let t = document.getElementById("txt");
+        // 메세지 변수
+        let msg = document.getElementById("msg");
+        // 이미지 변수
+        let i = document.getElementById("img");
+
+        document.getElementById("btn").onclick = function()
+        {
+            let data = t.value;
+            if(rnd > data)
+                msg.innerHTML += data +"이 더 작습니다.<br>"; 
+            else if(rnd < data)
+                msg.innerHTML += data +"이 더 큽니다.<br>";
+            else 
+            {
+                msg.innerHTML = data+"와 동일합니다.";
+                i.innerHTML = i.setAttribute("src", `../mycar/mycar${rnd2}.png`);
+            }
+        }
+    </script>
+</body>
+</html>
