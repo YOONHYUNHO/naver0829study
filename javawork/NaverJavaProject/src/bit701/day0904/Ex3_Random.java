@@ -19,12 +19,14 @@ public class Ex3_Random {
 			System.out.println(n);
 		}
 		System.out.println(" = ".repeat(10));
+		
 		for(int i = 0; i < 5; i++)
 		{
 			int n = r.nextInt(100)+1; // 1 ~ 100
 			System.out.println(n);
 		}
 		System.out.println(" = ".repeat(10));
+		
 		for(int i = 0; i < 5; i++)
 		{
 			int n = r.nextInt(26)+65;

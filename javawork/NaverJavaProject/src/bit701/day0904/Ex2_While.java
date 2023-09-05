@@ -21,7 +21,7 @@ public class Ex2_While {
 			{
 				break; // 0 입력시 while문을 빠져 나간다.
 			}
-			if(score > 0 || score < 100)
+			if(score < 1 || score > 100)
 			{
 				System.out.println("\t 1-100사이의 점수만 입력해주세요");
 				continue; // 하던 작업을 중단하고 다시 처음으로 돌아간다.

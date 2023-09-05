@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #photo
+        {
+            position: absolute;
+            top: 50px;
+            border: 2px solid gray ;
+            box-shadow: 5px 5px 5px gray;
+        }
+        #buttons
+        {
+            position: absolute;
+            left: 70px;
+        }
+        #buttons button
+        {
+            width: 60px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        3개의 버튼 (+, -, random)
+        - : 5px 감소(50px 보다 클 경우에만 변경)
+        + : 5px 증가(600px 보다 작을 경우에만 변경)
+        random : 1-20 사이의 난수를 구한 후 해당 사진으로 변경하기
+    -->
+    <div id="buttons">
+        <button type="button" id="btnplus">+</button>
+        <button type="button" id="btnminus">-</button>
+        <button type="button" id="btnrandom">random</button>
+    </div>
+    <img src="../연예인사진/12.jpg" alt="사진" style="width: 300px;" id="photo">
+
+    <script>
+        document.getElementById("btnplus").onclick = function()
+        {
+            let p = document.getElementById("photo");
+            let ps = parseInt(p.style.width);
+            console.log(ps);
+
+            if(ps < 600) 
+            {
+                ps+= 5;
+                // 크기 스타일 증가
+                p.style.width = ps + "px";
+            } else
+            {
+                alert("최대 크기입니다.");
+            }
+        }
+
+        document.getElementById("btnminus").onclick = function()
+        {
+            let p = document.getElementById("photo");
+            // 숫자형으로 값 변환
+            let ps = parseInt(p.style.width);
+            console.log(ps);
+
+            if(ps > 50) 
+            {
+                ps-= 5;
+                // 크기 스타일 증가
+                p.style.width = ps + "px";
+            } else
+            {
+                alert("최소 크기입니다.");
+            }
+        }
+
+        document.getElementById("btnrandom").onclick = function()
+        {
+            // 난수 발생
+            let rd = parseInt(Math.random()*20)+1;
+            console.log(rd);
+            let p = document.getElementById("photo");
+
+            p.setAttribute("src", `../연예인사진/${rd}.jpg`);
+        }
+    </script>
+</body>
+</html>

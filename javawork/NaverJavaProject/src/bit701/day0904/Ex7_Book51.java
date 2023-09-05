@@ -12,7 +12,7 @@ public class Ex7_Book51 {
 		// jdk13에서 추가된 텍스트 블록 문법
 		String jdata2 = 
 				"""
-				{"name":"캔디","address","역삼동"}
+				{"name":"캔디","address":"역삼동"}
 				""";
 		System.out.println(jdata2);
 		

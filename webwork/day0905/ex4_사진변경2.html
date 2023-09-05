@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      div#buttons 
+      {
+        margin-left: 30px;
+      }
+      div#buttons button
+      {
+        width: 80px;
+        margin-bottom: 20px;
+      }
+      #photo
+      {
+        border: 10px groove goldenrod;
+      }
+    </style>
+</head>
+<body>
+    <!-- 
+        3개의 버튼 (+, -, random)
+        - : 5px 감소(50px 보다 클 경우에만 변경)
+        + : 5px 증가(600px 보다 작을 경우에만 변경)
+        random : 1-20 사이의 난수를 구한 후 해당 사진으로 변경하기
+    -->
+    <div id="buttons">
+        <button type="button" id="btnlarge">+</button>
+        <button type="button" id="btnsmall">-</button>
+        <button type="button" id="btnrandom">random</button>
+    </div>
+    <br>
+    현재 사진 너비 : <span id = "fsize"></span>
+    <img src="../연예인사진/12.jpg" alt="사진" style="width: 300px;" id="photo">
+
+    <script>
+        // photo
+        let p = document.getElementById("photo");
+
+        document.getElementById("btnsmall").onclick = function()
+        {
+            // 사진의 width 값
+            let w = parseInt(p.style.width);
+
+            if(w >= 50)
+                w -= 5;
+                p.style.width = w+"px";
+                fsize.innerText = w;
+        }
+        document.getElementById("btnlarge").onclick = function()
+        {
+            // 사진의 width 값
+            let w = parseInt(p.style.width);
+
+            if(w <= 600)
+                w += 5;
+                p.style.width = w+"px";
+                fsize.innerText = w;
+        }
+        document.getElementById("btnrandom").onclick = function()
+        {
+            // 1-20 사이의 난수
+            let rnd = parseInt(Math.random()*20)+1;
+            // 이미지 변경
+            p.setAttribute("src", `../연예인사진/${rnd}.jpg`);
+        }
+    </script>
+</body>
+</html>

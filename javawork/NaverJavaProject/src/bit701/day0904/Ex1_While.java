@@ -39,7 +39,7 @@ public class Ex1_While {
 			System.out.print((char)a++);
 		}
 		while (a <= 90); // 조건 뒤에 반드시 ; 추가
-		
+		System.out.println();
 		int n = 10;
 //		while (n<10); // 조건이 거짓이면 실행 x
 //		{
