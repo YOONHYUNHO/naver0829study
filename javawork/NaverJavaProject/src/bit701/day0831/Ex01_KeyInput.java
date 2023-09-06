@@ -2,7 +2,7 @@ package bit701.day0831;
 
 import java.util.Scanner;
 
-public class Ex1_KeyInput {
+public class Ex01_KeyInput {
 
 	public static void main(String[] args) {
 		

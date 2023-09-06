@@ -2,7 +2,7 @@ package bit701.day0831;
 
 import java.util.Scanner;
 
-public class Ex9_SwitchWeek {
+public class Ex09_SwitchWeek {
 
 	public static void main(String[] args) {
 

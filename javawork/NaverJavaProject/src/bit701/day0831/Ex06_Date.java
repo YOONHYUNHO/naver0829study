@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Ex6_Date {
+public class Ex06_Date {
 
 	public static void main(String[] args) {
 

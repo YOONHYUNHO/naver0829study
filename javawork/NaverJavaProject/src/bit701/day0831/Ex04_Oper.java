@@ -3,7 +3,7 @@ package bit701.day0831;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Ex4_Oper {
+public class Ex04_Oper {
 
 	public static void main(String[] args) {
 

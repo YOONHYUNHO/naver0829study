@@ -4,7 +4,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Ex7_Format {
+public class Ex07_Format {
 
 	public static void main(String[] args) {
 

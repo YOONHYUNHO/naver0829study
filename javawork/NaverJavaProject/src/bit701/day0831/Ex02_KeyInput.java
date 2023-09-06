@@ -3,7 +3,7 @@ package bit701.day0831;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Ex2_KeyInput {
+public class Ex02_KeyInput {
 
 	public static void main(String[] args) {
 		

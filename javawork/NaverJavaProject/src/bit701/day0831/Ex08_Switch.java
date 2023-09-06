@@ -6,7 +6,7 @@ import java.util.Scanner;
  * 그 이후 문자열도 가능
  * 
  */
-public class Ex8_Switch {
+public class Ex08_Switch {
 
 	public static void main(String[] args) {
 
