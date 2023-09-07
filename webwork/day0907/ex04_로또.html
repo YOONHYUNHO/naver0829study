@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Jua&family=Oswald&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        div.main
+        {
+            width: 900px;
+            height: 400px;
+            background-color: #FFFACD;
+        }
+        div.box 
+        {
+            float: left;
+            /* color : #FFDAB9; */
+            width: 100px;
+            height: 100px;
+            border: 1px solid #FFDAB9;
+            margin-top : 70px;
+            margin-left: 20px;
+            margin-right: 20px;
+            text-align: center;
+            line-height: 100px;
+            font-style: 30px;
+            border-radius: 100px;
+        }
+        div#rd 
+        {   
+            margin-left: 400px;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            color: 	#FFDAB9;
+            text-align: center;
+            padding-top: 10px;
+            font-size: 20px;
+        }
+        div#time 
+        {
+            margin-left: 400px;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            color: 	#FFDAB9;
+            text-align: center;
+            padding-top: 10px;
+            font-size: 20px;
+
+        }
+        button#btn
+        {   color: #FFDAB9;
+            text-align: center;
+            margin-top: 100px;
+            margin-left: 370px;
+            font-size: 20px;
+            border: 2px solid #FFE4B5;
+            box-shadow: 5px 5px 5px #FFE4B5;
+            background-color: #FFFACD;
+        }
+    </style>
+    <script>
+        window.onload = function() 
+        {   
+
+            init_time();
+
+
+            setTimeout(function()
+            {
+                init_time();
+            });
+            // 현재 날짜 구하기
+            function init_time()
+            {
+                let date = new Date();
+                let y = date.getFullYear();
+                let m = date.getMonth()+1;
+                let d = date.getDate();
+
+                time.innerHTML = `${y}-${m}-${d}`;
+            }
+
+            
+
+            function random()
+            {
+                let rdn = parseInt((Math.random()*2000))+1;
+                rd.innerHTML = `${rdn}회`;
+            }
+            
+            let box = document.getElementById("box");
+            
+            function color ()
+            {
+                if(box < 10)
+                {
+                    box.style.backgroundColor = "yellow";
+                }
+            }
+            
+            document.getElementById("btn").onclick = function ()
+            {
+
+                // 여러개의 class 요소들을 배열변수로 얻는다.
+                let box = document.querySelectorAll("div.box");
+                // box = new Array(6);
+                console.log(box.length);
+                let number = new Array(6);
+                for(let i = 0; i < number.length; i++)
+                {   
+                    number[i] = parseInt((Math.random()*45)+1);
+                    for(let j = 0; j < i; j++) 
+                    {
+                        if(number[i] == number[j]) 
+                        {
+                            i--;
+                            break;
+                        }
+
+                    }
+                    
+                }
+
+                // 정렬
+                number.sort(function(a, b)
+                {
+                    return a-b;
+                });
+
+                // 공 색깔
+                // 출력
+                for(let i = 0; i < box.length; i++)
+                {
+                    box[i].innerHTML = number[i];
+                  
+                }
+               
+                // 회차 랜덤 구하기
+                random();
+                
+            }
+
+        }    
+    </script>
+    
+</head>
+<body>
+    <div class = "main">
+        <div id="rd"></div>
+        <div id="time"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <button id = "btn">로또 숫자 구하기</button>
+    </div>
+    
+</body>
+</html>

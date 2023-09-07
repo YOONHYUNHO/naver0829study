@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Jua&family=Oswald&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body 
+        {
+            font-family: "Jua";
+        }
+    </style>
+    <script>
+        let com, user;
+
+        window.onload = function()
+        {
+            com = new Array(3);
+            user = new Array(3);
+            let txtsu = document.getElementById("txtsu");
+            let msg = document.getElementById("msg");
+            // 새로운 난수 구하기 버튼 이벤트
+            document.getElementById("btnrandom").onclick = function()
+            {
+                for(let i = 0; i < 3; i++) 
+                {
+                    com[i] = parseInt(Math.random()*9)+1; // 1 ~ 9 사이 난수 발생
+                    
+                    // 중복 처리
+                    for(let j = 0; j < i; j++)
+                    {
+                        if(com[i] == com[j]) {
+
+                            i--;
+                            break;
+                        }
+                    }
+                }
+                alert("새로운 난수 발생" + com);
+                msg.innerHTML = "";
+            }
+            
+
+            // 확인 버튼 이벤트
+            document.getElementById("btnok").onclick = function()
+            {
+                // alert("ok버튼 클릭");
+
+                // 입력한 값 얻기 (String -> Number)
+                let su = Number(txtsu.value); // alert(typeof(su));
+                user[0] = parseInt(su/100);
+                user[1] = parseInt((su%100)/10);
+                user[2] = parseInt(su%10);
+
+                // 배열 user와 배열 com을 비교하여
+                // 숫자가 맞을경우 자리수 비교후 스트라이크, 볼 변수 증가하기
+                let strike = 0 , ball = 0;
+
+                for(let i = 0; i < 3; i++) 
+                {
+                    for(let j = 0; j < 3; j++)
+                    {
+                        if(com[i] == user[j] && i == j)
+                        {
+                            strike++;
+                        } else if(com[i] == user[j] && i != j)
+                        {
+                            ball++;
+                        }
+                    }
+                }
+                msg.innerHTML+=`<h4>${strike}스트라이크  ${ball}볼</h4>`;
+                if(strike == 3) 
+                {
+                    msg.innerHTML +=`<h2>정답입니다.</h2>`;
+                    
+                    
+                }
+                txtsu.value = "";
+                txtsu.focus();
+                
+
+            }
+
+            // 숫자 입력 엔터 이벤트
+            txtsu.onkeyup = function(e)
+            {
+                if(e.keyCode == 13)
+                {   
+                    // 숫자가 아닐 경우 경고 후 함수 종료
+                    // isNaN(Not a Number : 숫자가 아닐 경우 true)
+                    if(isNaN(this.value))
+                    {
+                        alert("숫자로만 입력해주세요");
+                        this.value = "";
+                        this.focus();
+                        return;
+                    }
+                    document.getElementById("btnok").click(); // 버튼 클릭 효과
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button type="button" id="btnrandom">새로운 난수 발생</button>
+        <br><br>
+        <input type="text" id="txtsu" style="width: 100;" autofocus>
+
+        <button type="button" id="btnok">확인</button>
+        <br><br>
+        <div id="msg">
+
+        </div>
+    </div>
+</body>
+</html>
