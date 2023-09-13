@@ -26,7 +26,7 @@ public class Ex03_VarAge {
 	
 	public static void main(String[] args) {
 		
-		// static mathod는 메서드명. 으로 작성 but 같은 클래스내에서는 생략 ㄴ가능
+		// static mathod는 메서드명. 으로 작성 but 같은 클래스내에서는 생략 
 		int s1 = sum(4,6,8);
 		
 		System.out.println("총 합 = " + s1);

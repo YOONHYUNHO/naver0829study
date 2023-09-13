@@ -40,4 +40,19 @@ public class Account {
 	}
 
 	
+	
+	// getter method
+	
+	public String getAccountNo() {
+		return accountNo;
+	}
+	
+	public String getAccountName() {
+		return accountName;
+	}
+	
+	public int getMoney() {
+		return money;
+	}
+	
 }
