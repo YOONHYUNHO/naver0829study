@@ -1,0 +1,28 @@
+-- system 계정에서 생성된 계정 확인
+select user, account_status from dba_users;
+
+-- scott 계정 잠금
+alter user scott account lock;
+
+-- scott 계정 잠금 해지
+alter user scott account unlock;
+
+-- angel 계정 생성(비번 a1234)
+create user angel identified by a1234; -- 권한 오류
+-- c##을 추가
+create user c##angel identified by a1234;
+
+-- 계정 삭제
+drop  user c##angel;
+
+-- c##을 제거하고 계정을 삭제하려면 세션을 변경 후 생성
+alter session set "_ORACLE_SCRIPT"=true;
+
+-- 세션 변경 후
+create user angel identified by a1234;
+
+-- 권한을 줘야만 접속과 데이터 저장이 가능
+grant connect, resource to angel;
+
+-- angel에 테이블을 생성할 수 있도록 tablespace 잡기
+alter user angel defauLt tablespace users quota unlimited on users;

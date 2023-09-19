@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    window.onload = function () {
+        f();
+        f();
+        add(5,6);
+        add(10,20);
+    }
+    // function hello1() {
+    //     one.innerHTML += "Hello<br>";
+    // }
+
+    // 화살표 함수로 변경
+    let f = () => one.innerHTML += "Hello<br>";
+
+    // function add(x, y) {
+    //     one.innerHTML += `${x} + ${y} = ${x+y}<br>`;
+    // }
+
+    let add = (x, y) => one.innerHTML += `${x} + ${y} = ${x+y}<br>`;
+</script>
+<body>
+    <div id = "one"></div>
+</body>
+</html>
