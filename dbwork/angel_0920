@@ -1,0 +1,120 @@
+create SEQUENCE seq1_test nocache;
+
+CREATE TABLE test(
+    num number(3) primary key,
+    name varchar(20) not null,
+    blood char(2) DEFAULT 'A',
+    weight number(5,2),
+    birthday date);
+SELECT * FROM test;
+
+-- 데이터 추가
+-- 일부 데이터만 넣은 경우 컬럼명을 반드시 표기
+INSERT INTO test (num,name)
+VALUES(seq_test.nextval, '캔디');
+
+INSERT INTO test 
+VALUES(seq_test.nextval, '캐서린', 'AB', 67.89, SYSDATE);
+
+-- 오류 확인
+INSERT INTO test(num, blood) VALUES (seq_test.nextval, 'O');
+
+-- 데이터 추가
+INSERT INTO TEST
+VALUES (SEQ_TEST.NEXTVAL, '권은비', 'B', 52.1, '1996-02-02');
+
+INSERT INTO TEST
+VALUES (SEQ_TEST.NEXTVAL, '이강인', 'A', 76.45, '2000-02-02');
+
+INSERT INTO TEST
+VALUES (SEQ_TEST.NEXTVAL, '손흥민', 'O', 77.77, '1969-09-09');
+
+insert into test values (seq_test.nextval,'유재석','AB',81,sysdate);
+insert into test values (seq_test.nextval,'강호동','B',98,sysdate);
+insert into test values (seq_test.nextval,'이수근','A',75,sysdate);
+insert into test values (seq_test.nextval,'이효리','AB',51,sysdate);
+insert into test values (seq_test.nextval,'한채영','B',46.5,sysdate);
+insert into test values (seq_test.nextval,'이민정','B',43.2,sysdate);
+insert into test values (seq_test.nextval,'이주일','O',49.1,sysdate);
+
+insert into test values (seq_test.nextval,'지효','O',55.1,sysdate);
+
+
+ROLLBACK;
+
+-- 수정, 
+UPDATE test
+SET blood = 'AB'
+WHERE name = '이강인';
+
+-- 두 개의 컬럼 수정
+UPDATE test
+SET weight = 9.1, birthday = SYSDATE
+WHERE num = 1;
+
+DELETE 
+FROM test
+WHERE NUM IN(1,2);
+
+DROP
+TABLE TEST;
+
+DROP SEQUENCE SEQ_TEST;
+
+CREATE TABLE person(
+    num number(3) CONSTRAINT person_pk_num PRIMARY KEY,
+    blood CHAR(2));
+
+-- 기존 제약조건 제거
+ALTER TABLE person
+DROP CONSTRAINT person_pk_num;
+
+-- 제약조건 추가
+ALTER TABLE person
+ADD CONSTRAINT person_num_pk PRIMARY KEY(num);
+
+-- blood에 대해서 check 제약조건 추가
+ALTER TABLE person 
+ADD CONSTRAINT person_ck_blood CHECK(blood IN('A','B','O','AB'));
+
+-- 데이터 추가
+INSERT INTO person
+VALUES(1, 'A');
+
+INSERT INTO person
+VALUES(1, 'B');
+
+INSERT INTO person
+VALUES(2, 'b');
+
+INSERT INTO person
+VALUES(2, 'O');
+
+-- 컬럼 추가
+ALTER TABLE person
+ADD name varchar2(20);
+ALTER TABLE person
+ADD score number(5,1)
+DEFAULT 30.5;
+
+-- 컬럼 제거(DROP COLUMN)
+ALTER TABLE person
+DROP COLUMN num;
+
+-- java라는 컬럼을 number 타입으로 추가 후 1 ~ 100 사이 값만 들어오도록 제약조건 추가
+ALTER TABLE person
+ADD java number(3) 
+DEFAULT 0;
+ALTER TABLE person
+ADD CONSTRAINT person_ck_java
+CHECK(java >=0 AND java <= 100);
+
+-- 컬럼명 변경 RENAME COLUMN
+ALTER TABLE person
+RENAME COLUMN java TO spring;
+-- 데이터 추가 시 컬럼 순서대로 주기 싫을 경우 컬럼명 부여
+INSERT INTO person
+(name, blood, spring, score) 
+VALUES('lee', 'O', 90, 35);
+
+DROP TABLE person;

@@ -1,0 +1,29 @@
+-- 조회(SELECT) 연습
+SELECT * FROM emp;
+SELECT * FROM emp ORDER BY ename asc; -- 오름차순(default)
+SELECT * FROM emp ORDER BY ename desc; -- 내림차순
+SELECT empno, ename FROM emp; -- 일부 컬럼만 조회
+SELECT job FROM emp; -- job 컬럼만 조회
+-- 같은 직업일 경우 한 번씩만 출력, 오름차순(default)
+select DISTINCT DISTINCT job FROM emp order by 1; -- 컬럼이 한 개이므로 job대신 1도 가능
+-- sal이 3000 이상인 경우만 조회
+SELECT * FROM emp where sal >= 3000 ORDER BY sal;
+-- sal이 2천 이상이면서 deptno가 20인 사람( and ) - ename, sal, deptno
+SELECT ename, sal, deptno FROM emp WHERE sal>= 2000 and deptno = 20;
+
+-- SMITH의 데이터 조회
+SELECT * FROM emp WHERE ename = 'SMITH';
+
+-- A로 시작하는 사람들만 조회
+SELECT * FROM emp WHERE ename LIKE 'A%';
+
+-- 두 번째 글자가 A인 사람만 조회
+SELECT * FROM emp WHERE ename LIKE '_A%'; -- _는 임의의 한 글자를 의미
+
+SELECT * FROM emp WHERE ename LIKE '__A%';
+
+-- s로 시작하거나 j로 시작하는 모든 사람 조회
+SELECT * FROM emp WHERE ename LIKE 'S%' OR ename LIKE 'J%';
+
+-- sal이 2천 이상인 사람중에 s로 시작하는 사람 조회
+SELECT * FROM emp WHERE ename LIKE 'S%' AND sal >= 2000;
