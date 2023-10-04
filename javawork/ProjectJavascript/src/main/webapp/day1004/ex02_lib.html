@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Permanent+Marker&family=Single+Day&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body * {
+        font-family: 'Jua';
+    }
+</style>
+<script>
+  window.onload = function () {
+    
+  }
+</script>    
+<title>Insert title here</title>
+</head>
+<body>
+  <script>
+    let s = "2*3+3";
+    document.write(s + "<br>");
+    // eval("수식") : 문자열 형태의 수식을 계산해서 결과 값을 반환
+    document.write(eval(s) + "<br>");
+    
+    // isNaN : 문자열일 경우 true, 숫자일 경우 false
+    document.write(isNaN(5) + "<br>");
+    document.write(isNaN("5") + "<br>");
+    document.write(isNaN("5a") + "<br>");
+    document.write(isNaN("hello") + "<br>");
+    
+    let su1 = "4.5";
+    let su2 = "12.3";
+    let sum1 = parseInt(su1) + parseInt(su2);
+    document.write(sum1 + "<br>");
+    // Number : 문자열 형태의 숫자를 숫자타입으로 변환(정수, 실수 모두 가능)
+    let sum2 = Number(su1) + Number(su2);
+    document.write(sum2 + "<br>");
+  </script>
+  <hr>
+  <div class="input-group" style="width: 300px;">
+    <input type = "text" class="form-control su1" placeholder="숫자 1">
+    <input type = "text" class="form-control su2" placeholder="숫자 2">
+    
+    <select class="form-select selop">
+      <option hidden disabled selected>연산 선택</option>
+      <option>+</option>
+      <option>-</option>
+      <option>*</option>
+      <option>/</option>
+    </select>
+  </div>
+  <div class="result" style = "font-size: 30px; margin : 30px;">
+    Result
+  </div>
+  <script>
+    document.querySelector(".selop").onchange = function () {
+      // 숫자 1, 2 읽기
+      let s1 = Number(document.querySelector(".su1").value);
+      let s2 = Number(document.querySelector(".su2").value);
+      
+      if(isNaN(s1)) {
+        alert("숫자 형태로 입력하세요");;
+        return; // 함수 종료
+      }
+      if(isNaN(s2)) {
+        alert("숫자 형태로 입력하세요");;
+        return; // 함수 종료
+      }
+      
+      // 연산자
+      let op = this.value;
+      let r = 0;
+      /* switch(op) {
+        case "+":
+          r = s1 + s2;
+          break;
+        case "-":
+          r = s1 - s2;
+          break;
+        case "*":
+          r = s1 * s2;
+          break;
+        case "/":
+          r = s1 / s2;
+          break;
+      } */
+      r = eval(s1 + op + s2);      
+      document.querySelector(".result").innerHTML = `${s1}${op}${s2} = ${r}`;
+      
+    }  </script>
+</body>
+</html>
