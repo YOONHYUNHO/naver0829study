@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Permanent+Marker&family=Single+Day&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<style>
+    body * {
+        font-family: 'Jua';
+    }
+    
+    .photo {
+      border: 5px solid tomato;
+      border-radius: 100px;
+    }
+</style>
+<script>
+  $(function (){
+    // 문1 : h3 아래 b의 글꼴을 Single Day로, 사이즈를 25px로 , 글자색을 red로 변경
+    $("b:last").css({
+      "font-family" : "Single Day",
+      "font-size" : "25px",
+      "color" : "red"
+    });
+    // 문2 : h3 아래의 span 태그를 클릭하면 안의 텍스트를 읽어서 이미지의 src에 넣기 그 텍스트를 h4 아래의 b태그에도 텍스트로 넣기
+    $("span:eq(0)").click(function (){
+      let a = $(this).text();
+      $("img").attr("src" , a);
+      $("b:last").text(a);
+      /*
+      $("img").attr("src", $(this).text());
+      $("h4>b").text($(this).text());
+      */
+    });
+    $("span:eq(1)").click(function (){
+      let b = $(this).text();
+      $("img").attr("src" , b);
+      $("b:last").text(b);
+    });
+    $("span:eq(2)").click(function (){
+      let c = $(this).text();
+      $("img").attr("src" , c);
+      $("b:last").text(c);
+    });
+    // 문3 : photo 라는 클래스로 스타일을 만든 후 (border 등 마음대로), 사진에 마우스를 올리면 photo 적용 , 벗어나면 photo제거
+    $("img").hover(function () {
+      $(this).addClass("photo");
+    }, function(){
+      $(this).removeClass("photo");
+    });
+  });
+</script>    
+<title>Insert title here</title>
+</head>
+<body>
+  <h3>
+    <b>맛있는 샌드위치</b>
+    <br>
+    <span>../food/8.jpg</span>
+  </h3>
+  <h3>
+    <b>망고빙수</b>
+    <br>
+    <span>../food/11.jpg</span>
+  </h3><h3>
+    <b>마요 덮밥</b>
+    <br>
+    <span>../food/10.jpg</span>
+  </h3>
+  <hr>
+  <img src = "" width="200">
+  <br>
+  <h4><b>111</b></h4>
+  
+</body>
+</html>
