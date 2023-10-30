@@ -1,0 +1,112 @@
+body {
+  margin : 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+body, html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background : #fff1c6 url('../jquery/bg.png') center center;
+  background-size: cover;
+}
+
+#sunban-wrapper {
+  width: 780px;
+  margin : 50px auto;
+}
+
+#control-wrapper {
+  width: 300px;
+  height: 420px;
+  position: fixed;
+  left : 0;
+  bottom: 0;
+}
+
+.sunban {
+  height: 150px;
+  margin-bottom: 50px;
+  width: 800px;
+  background: url('../jquery/sunban.png'), no-repeat center bottom;
+}
+
+.sunban li {
+  float: left;
+  width: 128px;
+  height: 128px;
+  cursor: pointer;
+}
+
+.money li {
+  cursor: pointer;
+}
+
+.gun {
+  width: 300px;
+  height: 250px;
+  background: url('../jquery/gun.png'), no-repeat;
+  cursor: pointer;
+  text-indent: -9999px;
+}
+
+.gun:active {
+  background-position: bottom;
+}
+
+#msg {
+  clear: both;
+  position: absolute;
+  left: 700px;
+  top: 500px;
+  width: 400px;
+  height: 90px;
+  font-size: 22px;
+  border : 10px groove tomato;
+  text-align: center;
+  line-height: 90px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

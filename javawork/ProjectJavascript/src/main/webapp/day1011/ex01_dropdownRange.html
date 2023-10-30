@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Permanent+Marker&family=Single+Day&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body * {
+      font-family: 'Jua';
+    }
+  </style>
+  <script>
+    $(function() {
+      let init_width = 200;
+      // 초기 값 설정
+      $(".photosize").val(init_width);
+      $(".shopwidth").text(init_width);
+      $(".photo").css({
+        "width" : init_width + "px",
+        "margin-left" : "50px",
+        "margin-top" : "30px"
+      });
+      
+      // dropdown 이벤트
+      $("ul.dropdown-menu > li > a.dropdown-item").click(function() {
+        // img src
+        let imgsrc = $(this).attr("src");
+        // img txt
+        let imgtxt = $(this).text();
+        
+        $(".shopname").text(imgtxt);
+        $("#btnItem").text(imgtxt);
+        $(".photo").attr("src", imgsrc);
+      });
+      
+      // range 이벤트
+      $(".photosize").mousemove(function() {
+        // range 값
+        let rg = $(this).val();
+        
+        // range 값 출력
+        $(".shopwidth").text(rg);
+        
+        // img width에 적용
+        $("img.photo").css("width", rg + "px");
+      });
+    });
+  </script>
+  <title>Insert title here</title>
+</head>
+
+<body>
+  
+  <h5>BS5 의 DROPDOWN</h5>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+    id = "btnItem">
+      상품 선택
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#" src ="../shop/2.jpg">화이트원피스</a></li>
+      <li><a class="dropdown-item" href="#" src ="../shop/14.jpg">플렛슈즈</a></li>
+      <li><a class="dropdown-item" href="#" src ="../shop/30.jpg">보석머리띠</a></li>
+      <li><a class="dropdown-item" href="#" src ="../shop/23.jpg">모자</a></li>
+      <li><a class="dropdown-item" href="#" src ="../shop/31.jpg">화이트가디건</a></li>
+    </ul>
+    &nbsp;&nbsp;
+    <b class="shopname">상품명</b>
+  </div>
+  <br /><br />
+  <h5>사진 사이즈 조절</h5>
+  <input type="range" class="photosize" style="width: 300px;" min = "100" max = "500" step="5"/>
+  &nbsp;&nbsp;
+  <b class="shopwidth">0</b>
+  <br /><br />
+  <img src="../shop/2.jpg" alt="" class="photo" border = "3" />
+</body>
+
+</html>

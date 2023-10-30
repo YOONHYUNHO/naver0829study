@@ -30,14 +30,14 @@ $(function () {
                   <img src = "${item.photo}" style = "width : 250px; height : 150px">
                 </td>
                 `;
-          s +=  `<td>
+          s +=  `<td valign = middle>
                   <h3>${item.sname}</h3>
                   <h3>${item.price}</h3>
                 `;               
           $.each(item.color, function (idx2, cr) {
             s += `<div style = "border : 3px solid ${cr}; background-color : ${cr}; width : 50px; height : 50px; border-radius : 50px;"></div>`;
           });
-          s += "</td>";
+            s += "</td>";
           /*$.each(item.color, function(idx2, cr) {
             s += `
                   <td>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Permanent+Marker&family=Single+Day&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <style>
+    body * {
+      font-family: 'Jua';
+    }
+  </style>
+  <script>
+    $(function(){
+      // 제목
+      $(".title>b").css({
+        "cursor" : "pointer",
+        "font-size" : "22px"
+      });
+      
+      // 내용 hide()
+      $("div.content").hide();
+      
+      // 제목 click 시 기사 slideDown 
+      $(".title>b").click(function() {
+        $(this).next().slideDown('slow');
+        
+        // 나머지 내용 slideUp - children, find
+        $(this).parent().siblings().children(".content").slideUp();
+      });
+    });
+  </script>
+  <title>Insert title here</title>
+</head>
+
+<body>
+  <div class="title alert alert-danger">
+    <b>'2023 LoL 월드 챔피언십' 개막…플레이그라운드에도 볼거리 가득</b>
+    <div class="content">
+      '2023 리그 오브 레전드 월드 챔피언십' 개최 기간 내내 운영되는 '월드 챔피언십 플레이그라운드'가 팬들에게 다양한 볼거리를 제공한다.
+    </div>
+  </div> 
+    <div class="title alert alert-info">
+      <b>SON 4호골, 토트넘 9월의 골 선정! 아스널 수비 3명+GK 꼼짝 못했다... '45% 득표' 팬들도 감탄 "완벽한 골"</b>
+      <div class="content">
+        '캡틴' 손흥민(31·토트넘)의 시즌 4호골이 소속팀 '9월의 골'에 선정됐다.
+
+        토트넘은 11일(한국시간) 구단 SNS를 통해 손흥민이 지난 리그 6라운드 아스널전에서 넣은 골이 '9월' 이달의 골에 선정됐다는 소식을 전했다. 이와 관련해 토트넘은 "손흥민의 골은 투표에 참여한 팬
+        중 45%의 지지를 받았다"고 설명했다.
+      </div>
+    </div>
+    <div class="title alert alert-warning">
+      <b>손흥민, ‘절친’ 앙리 옆에 이름 새길 가능성↑…이달의 선수 발표 전 ‘유출’</b>
+      <div class="content">
+        손흥민(31·토트넘)이 개인 통산 네 번째 잉글랜드 프리미어리그(EPL) 이달의 선수상을 거머쥘 가능성이 커졌다.
+        최근 SNS(소셜미디어)상에서 EPL 9월의 선수 이미지가 유출됐다. 이달의 선수상은 EPL 사무국과 EA스포츠가 협업해 선정하는데, 발표가 있기 전 손흥민의 얼굴이 새겨진 이달의 선수 이미지가
+        SNS에 돌아다니고 있다. 사실상 수상이 유력한 셈이다.
+      </div>
+    </div>
+  
+</body>
+
+</html>

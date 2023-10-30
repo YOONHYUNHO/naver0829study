@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Permanent+Marker&family=Single+Day&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<style>
+    body * {
+        font-family: 'Jua';
+    }
+    #myPen > div {
+      width: 30px;
+      height: 30px;
+      float: left;
+      margin-right: 3px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+</style>
+<script>
+  $(function() {
+    let draw = false; // 마우스를 클릭 시 true 아니면 false
+    let can = document.getElementById("can");
+    let ctx = can.getContext("2d");
+    let preX, preY; // mousemove 시에 이전 좌표로 현재 좌표 저장
+    ctx.strokeStyle = "black";
+    
+    // 초기 펜 굵기
+    ctx.lineWidth = 3;
+    
+    // 선의 끝 모양
+    ctx.lineCap = "round";
+    
+    // 이벤트
+    $("#can").bind ({
+      mousedown : function(e) {
+        draw = true;
+        // 현재 좌표 저장
+        preX = e.pageX;
+        preY = Number(e.pageY)-100;
+      },
+      mouseup : function(e) {
+        draw = false;
+      }, 
+      mousemove : function(e) {
+        if(draw) {
+          ctx.beginPath();
+          ctx.moveTo(preX, preY); // 선을 그리기 위한 위치로 이동
+          ctx.lineTo(e.pageX, Number(e.pageY)-100); // 현재 좌표까지 선을 그린다.
+          ctx.stroke(); // 실제 선을 그려준다.
+          ctx.closePath();
+          
+          // 다시 현재 좌표를 직전 좌표로 저장
+          preX = e.pageX;
+          preY = Number(e.pageY)-100;
+        }
+      }
+  
+  
+    });
+    
+    // 화면 초기화
+    $("#btn1").click(function() {
+      ctx.clearRect(0,0,500,500);
+    });
+    
+    // 색상표 클릭 시 펜의 색상을 변경
+    $("#myPen>div").click(function() {
+      let pen = $(this).css("background-color");
+      ctx.strokeStyle = pen;
+    });
+    
+    // 지우개
+    $("#btn2").click(function() {
+      ctx.strokeStyle = "#fff";
+    });
+    
+    // 별도 보관
+    $("#btn3").click(function (){
+      let myImg = "<img src = '" + can.toDataURL() + "'>";
+      $("hr.save").after(myImg);
+    });
+    
+  
+  });
+</script>    
+<title>Canvas</title>
+</head>
+<body>
+  <h4 class="alert alert-info">Canvas</h4>
+  <br />
+  <canvas id="can" width="500" height="500" style="border: 1px solid black; cursor: crosshair;"></canvas>
+  <div id="myPen">
+    <div style="background-color: orange;"></div>
+    <div style="background-color: tomato;"></div>
+    <div style="background-color: darkorange;"></div>
+    <div style="background-color: skyblue;"></div>
+    <div style="background-color: deepskyblue;"></div>
+    <div style="background-color: darkblue;"></div>
+    <div style="background-color: palevioletred;"></div>
+    <div style="background-color: deeppink"></div>
+    <div style="background-color: lightcoral;"></div>
+    <div style="background-color: palegoldenrod;"></div>
+    <div style="background-color: papayawhip;"></div>
+    <div style="background-color: peachpuff;"></div>
+    <div style="background-color: cadetblue;"></div>
+    <div style="background-color: darkgreen;"></div>
+    <div style="background-color: lightgreen;"></div>
+  </div>
+  <br style="clear : both" />
+  <br />
+  <button id="btn1" class="btn btn-outline-danger btn-sm">화면 초기화</button>
+  <button id="btn2" class="btn btn-outline-danger btn-sm">지우개</button>
+  <button id="btn3" class="btn btn-outline-danger btn-sm">별도 보관</button>
+  <hr class="save" />
+</body>
+</html>

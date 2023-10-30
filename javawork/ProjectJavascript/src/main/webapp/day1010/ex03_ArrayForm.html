@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Permanent+Marker&family=Single+Day&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<style>
+    body * {
+        font-family: 'Jua';
+    }
+</style>
+<script>
+
+</script>    
+<title>Insert title here</title>
+</head>
+<body>
+  <h4 class="alert alert-warning grade" >학력</h4>
+  <script>
+    let arr1 = ["고졸", '전문대졸', "대졸", "대학원", "박사", "유학"];
+    $.each(arr1, function(idx, item) {
+      let s = 
+        `
+          <label>
+            <input type="radio" name = "grade" value = "${item}" ${idx == 2 ? "checked" : ""} /> ${item} 
+          </label>
+        `;
+      
+      document.write(s);
+    });
+  </script>
+  <h4 class="alert alert-danger lang" >언어</h4>
+  <script>
+    let lang = ["java", "html5", "css", "js", "es6", "spring framework", 
+    "spring boot", "python", "git", "oracle", "linux", "mysql", "jsp", "themeleaf", "navercloud"];
+    
+    // 체크 박스로 나열(name = "lang"), 한 줄에 5개씩 출력
+    $.each(lang, function(idx, item) {
+    let s = 
+        `
+          <label style = "width : 160px">
+            <input type="checkbox" name = "lang" value = "${item}" />${item}
+          </label>
+        `;
+        if((idx+1) % 4 == 0) 
+          document.write("<br>");
+      
+    document.write(s);
+    });
+    
+  </script>
+  
+  <h4 class="alert alert-info">거주 지역</h4>
+  <script>
+    let city = ["서울시 강남구", "서울시 강북구", "서울시 여의도", "제주시 애월읍", "제주시 한림읍", "인천 부평구", 
+                "인천 송도", "남원"];
+    // select, 첫 줄 : "지역을 선택하세요", class = "city"
+      let s = 
+            `
+              <select class=" form-select city" style = "width : 200px">
+                <option hidden disabled selected>select #1</option>
+            `;
+    $.each(city, function(idx, item) {
+        s += `
+              <option>${item}</option>
+             `;
+             
+    });
+        s += "</select>"
+        document.write(s);
+  </script>
+  <button class="btn btn-lg btn-outline-success" style="margin : 30px 200px">결과</button>
+  <script>
+    $(".btn").click(function() {
+      let s = "";       
+      let grade = $("input[name = 'grade']:checked").val();
+      s += ` 최종학력 : ${grade}<br>`;
+      
+      let lang_count = $("input[name = 'lang']:checked").length;
+      if(lang_count == 0) 
+        s += "구현 가능한 언어가 없습니다.<br>";
+      else {
+        s += "<h5> 구현가능한 언어</h5>";
+        $("input[name = 'lang']:checked").each(function(idx) {
+          s += (idx+1) + ":" + $(this).val()+ "<br>";
+        });
+      }
+      let city = $(".city").val();
+      s += `거주지역 : ${city}`;
+      $(".result").html(s);
+      });
+  </script>
+  <div class="result" style="font-size: 20px; margin:30px">11</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</body>
+</html>

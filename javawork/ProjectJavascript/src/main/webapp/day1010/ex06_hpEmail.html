@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Permanent+Marker&family=Single+Day&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<style>
+    body * {
+        font-family: 'Jua';
+    }
+</style>
+<script>
+
+</script>    
+<title>Insert title here</title>
+</head>
+<body>
+  <h5 class="alert alert-info">핸드폰 , 이메일 선택</h5>
+  <div class="input-group" style="width: 400px;">
+    <span class="input-group-text">핸드폰</span>
+    <input type="text"class = "form-control" id = "hp1" maxlength="3"/>
+    <b>-</b>
+    <input type="text"class = "form-control" id = "hp2" maxlength="4"/>
+    <b>-</b>
+    <input type="text"class = "form-control" id = "hp3" maxlength="4"/>
+    <br>
+  </div>
+  <br>
+  <div class="input-group" style="width: 440px; margin-top: 20px;">
+    <span class="input-group-text">이메일</span>
+    <input type="text"class = "form-control" id = "email1" />
+    <b>@</b>
+    <input type="text"class = "form-control" id = "email2" />
+    <select name="" id="" class="form-select selEmail">
+      <option value="" hidden selected disabled>select email</option>
+      <option value="-">직접 입력</option>
+      <option value="naver.com">네이버</option>
+      <option value="nate.com">네이트</option>
+      <option value="gmail.net">구글</option>
+      <option value="daum.net">다음</option>
+    </select>
+  </div>
+  <br>
+  <button id="btn1" class="btn btn-outline-danger">결과 출력</button>
+  <br>
+  <div class="result" style="font-size: 22px; margin : 30px">11</div>
+  <script>
+    $("#hp1").keyup(function() {
+      // 3글자 입력 시 다음칸으로 자동 이동
+      if($(this).val().length == 3)
+        $("#hp2").focus();
+    });
+    $("#hp2").keyup(function() {
+      // 3글자 입력 시 다음칸으로 자동 이동
+      if($(this).val().length == 4)
+        $("#hp3").focus();
+    });
+    // 이메일 선택
+    $(".selEmail").change(function() {
+      let v = $(this).val();
+      if(v == '-') {
+        $("#email2").val("");
+        $("#email2").focus();
+      } else {
+        $("#email2").val(v);
+      }
+    });
+    
+    // 버튼 이벤트
+    $("#btn1").click(function(){
+      let s = "";
+      let hp = $("#hp1").val();
+      let hp1 = $("#hp2").val();
+      let hp2 = $("#hp3").val();
+      let email = $("#email1").val() + "@" + $("#email2").val();
+      console.log(hp);
+      s += 
+        `
+          핸드폰 : ${hp} - ${hp1} - ${hp2}
+          <br>
+          이메일 : ${email}
+        `;
+      $(".result").html(s);
+    });
+  </script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</body>
+</html>

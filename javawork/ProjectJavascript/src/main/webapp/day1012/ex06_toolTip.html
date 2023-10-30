@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Permanent+Marker&family=Single+Day&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<style>
+    body * {
+        font-family: 'Jua';
+    }
+    
+    .mytooltip{
+    position: absolute;
+    line-height: 1.5;
+    color:black;
+    width:200px;
+    background-color: #f90;
+    border:2px solid white;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 30px;
+    opacity:0.8;
+    display: none;
+  }
+  
+  .view{
+    cursor: pointer;
+    text-decoration: underline;
+    background-color: #ccc;
+  }
+  
+  ol.today li{
+    width:200px;
+    cursor: pointer;
+    background-color: #ccc;
+  }
+  
+  ol.today li:hover{
+    background-color: rgba(0,0,0,0.3);
+  }
+</style>
+<script>
+  $(function(){
+    $("a").bind({
+      mousemove:function(e){
+        $("div.mytooltip").css({
+          "left":e.pageX+"px",
+          "top":e.pageY+"px"
+        });
+      },
+      mouseover:function(){
+        $("div.mytooltip").fadeIn('fast');
+      },
+      mouseout:function(){
+        $("div.mytooltip").fadeOut('fast');
+      }
+    });
+    
+    
+    $(".view").bind({
+      mousemove:function(e){        
+        $("div.mytooltip").css({
+          "left":e.pageX+"px",
+          "top":e.pageY+"px"
+        });
+      },
+      mouseover:function(){
+        let color=$(this).attr("color");
+        //let text=$(this).text();
+        let text=$(this).attr("content");
+        $("div.mytooltip").css("color",color).html(text);
+        $("div.mytooltip").fadeIn('fast');
+      },
+      mouseout:function(){
+        $("div.mytooltip").fadeOut('fast');
+      }
+    });
+    
+    $("ol.today li").bind({
+      mousemove:function(e){        
+        $("div.mytooltip").css({
+          "left":e.pageX+"px",
+          "top":e.pageY+"px"
+        });
+      },
+      mouseover:function(){
+        let photo=$(this).attr("photo");
+        let text=$(this).text();
+        $("div.mytooltip").html(`<b>${text}</b><br><img src="${photo}" border=2 width=100>`);
+        $("div.mytooltip").fadeIn('fast');
+      },
+      mouseout:function(){
+        $("div.mytooltip").fadeOut('fast');
+      }
+    });
+  });
+</script> 
+</head>
+<body>
+ <h4 class="alert alert-danger">Tooltip 링크에 마우스를 올려보세요</h4>
+ <br><br>
+ <a style="font-size: 25px;cursor: pointer;">
+   Tooltip Tooltip Tooltip Tooltip 
+ </a>
+ 
+ <pre>
+   
+유족 "피해자 위로하는 길은 피고 엄벌"
+
+'신당역 살인' 전주환에 <b  class="view" color="green" content="감옥에 오래오래 들어가있어요">무기징역 확정</b>…대법, 상고 기각
+[서울=뉴시스] 정병혁 기자 = 신당역 살인사건 피의자인 
+전주환(31)이 21일 오전 서울 중구 남대문경찰서에서 검찰로 송치되고 있다. 
+2022.09.21. (공동취재사진) 2022.09.21. photo@newsis.com
+[서울=뉴시스] 하종민 기자 = '신당역 스토킹 살인사건'으로 
+무기징역을 선고받은 전주환(32)이 <b  class="view" color="magenta" content="양형이란 이러이러한것입니다">양형 부당</b>을 주장하며 상고했지만, 
+대법원은 이를 받아들이지 않았다.
+
+대법원 제3부(주심 노정희 대법관)는 12일 오전 11시 성폭력범죄의 
+처벌 등에 관한 특례법 위반 등의 혐의로 기소된 전주환에 대한 
+상고심에서 모든 상고를 기각한다고 밝혔다.
+
+대법원은 "전주환의 연령, 성행, 환경, 피해자와의 관계, 이 사건 
+각 범행의 동기·수단과 결과, 범행 후와 정황 등 양형의 조건이 되는 
+여러 사정을 살펴보면 원심이 무기징역을 선고한 것이 심히 부당하다고 할 수 없다"고 
+판결 이유를 설명했다.
+
+전주환은 지난해 9월14일 밤 서울 <b  class="view" color="blue" content="지하철 2호선 삼성역">지하철 2호선</b> 신당역 내부 여자 
+화장실에서 서울교통공사 입사 동기인 여성 직원 A씨에게 흉기를 
+휘둘러 살해한 혐의 등으로 재판에 넘겨졌다.
+
+</pre>
+<hr>
+<h2>오늘 나의 식사및 쇼핑목록</h2>
+<ol type="1" class="today">
+  <li photo="../food/1.jpg">에그샌드위치</li>
+  <li photo="../food/11.jpg">망고빙수</li>
+  <li photo="../shop/8.jpg">회색스위터</li>
+  <li photo="../shop/29.jpg">여름용모자</li>
+</ol>
+ 
+ <div class="mytooltip">
+   Java<br>
+   HTML5<br>
+   SpringBoot<br>
+   React<br>
+   jQuery
+ </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&family=Lobster&family=Nanum+Pen+Script&family=Permanent+Marker&family=Single+Day&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    body * {
+      font-family: 'Jua';
+    }
+
+    img.photo {
+      width: 80px;
+      height: 80px;
+      border: 1px solid black;
+      border-radius: 100px;
+      cursor: pointer;
+    }
+  </style>
+  <script>
+    $(function(){
+      $("img.photo").click(function() {
+        // 이미지 src 얻기
+        let imgsrc = $(this).attr("src");
+        // 모달 이미지에 적용
+        $(".detailPhoto").attr("src", imgsrc);
+        
+        // 상품명 얻기
+        let txt = $(this).parent().prev().prev().text();
+        // 상품명 적용
+        $(".modalItem").text(txt);
+  
+        // 가격 얻기
+        let price = $(this).parent().prev().text();
+        // 가격 적용
+        $(".modalPrice").text(price);
+      });
+    });
+  </script>
+  <title>Insert title here</title>
+</head>
+
+<body>
+  <!-- The Modal -->
+  <div class="modal" id="myModalPhoto">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">상품 상세정보</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <h5 class="modalItem">상품명 나올 곳</h5>
+          <h5 class="modalPrice" style="color: red;">가격 나올 곳</h5>
+          <img src="../sport/11.jpg" alt="" class="detailPhoto" style="width: 100%; border: 2px inset orange;" />
+        </div>
+
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div style="margin : 30px 50px; width: 400px;">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th width="150">상품명</th>
+          <th width="100">가격</th>
+          <th>사진</th>
+        </tr>
+      </thead>
+      <tbody>
+        <script>
+          let arrItem = [
+            {title: "캉테", price: "15000", photo: "../sport/7.jpg"},
+            {title: "홀란드", price: "23000", photo: "../sport/8.jpg"},
+            {title: "음바페", price: "6000", photo: "../sport/10.jpg"},
+            {title: "손흥민", price: "55000", photo: "../sport/4.jpg"},
+            {title: "이강인", price: "23000", photo: "../sport/5.jpg"},
+            {title: "권은비", price: "92000", photo: "../sport/6.jpg"}
+          ];
+
+          let s = "";
+          $.each(arrItem, function (idx, item) {
+            s +=
+              `
+                <tr>
+                	<td>${item.title}</td>
+                	<td>${item.price}원</td>
+                	<td><img src="${item.photo}" alt="" class = "photo" data-bs-toggle="modal" data-bs-target="#myModalPhoto" /></td>
+                </tr>
+              `;
+          });
+
+          document.write(s);
+        </script>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+
+</html>
